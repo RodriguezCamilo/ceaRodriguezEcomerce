@@ -7,7 +7,10 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <ItemList/>
+      <main>
+        <h1>Gaming shop</h1>
+        <ItemList/>
+      </main>
     </div>
   );
 }
