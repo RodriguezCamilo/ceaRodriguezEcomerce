@@ -9,7 +9,7 @@ function App() {
       <NavBar/>
       <main>
         <h1>Gaming shop</h1>
-        <ItemList/>
+        <ItemList item1="Silla" precio="$70.000"/>
       </main>
     </div>
   );

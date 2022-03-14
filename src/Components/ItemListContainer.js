@@ -1,11 +1,10 @@
 import React from "react"
 
-export function ItemList () {
+export function ItemList (props) {
+    console.log(props)
     return (
         <ul>
-            <li>Objeto 1</li>
-            <li>Objeto 2</li>
-            <li>Objeto 3</li>
+            <li>Objeto: {props.item1} Precio: {props.precio}</li>
         </ul>
     )
 }
