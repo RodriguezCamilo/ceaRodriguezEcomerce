@@ -16,7 +16,7 @@ nav {
   background-color: white;
 }
 
-img {
+nav img {
   max-height: 40px;
 }
 
@@ -47,6 +47,10 @@ li {
 
 .data {
   padding: 50px 0 150px;
+}
+
+.data img {
+  height: 200px;
 }
 
 #Card button {

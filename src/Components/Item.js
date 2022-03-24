@@ -13,8 +13,8 @@ export function Item({item}) {
                 <div> Producto: {item.title} </div>
                 <div> Precio: {item.price}</div>
                 <img src={item.pictureUrl} />
-            </div>
             <ItemCount initial={1} stock={10} onAdd={onAdd} />
+            </div>
         </div>
     )
 }
