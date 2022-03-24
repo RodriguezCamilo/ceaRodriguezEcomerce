@@ -1,49 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-  background-color: black;
   font-family: "Roboto", sans-serif;
-  color: white;
 }
 
 main {
   text-align: center;
 }
 
-nav {
-  display: flex;
-  max-height: 50px;
-  background-color: white;
-}
-
-nav img {
-  max-height: 40px;
-}
-
 a {
-  margin: auto;
+  margin: auto 10vw;
 }
 
-.link {
-  color: white;
-  background-color: black;
-  text-decoration: none;
-  padding: 10px;
-}
-
-li {
-  list-style: none;
-}
-
-#Card {
-  width: 300px;
-  height: 500px;
-  max-height:500px;
-  margin: auto;
-  background-color: rgb(255, 255, 255);
-  color: black;
-  font-size: 25px; 
-}
 
 .data {
   padding: 50px 0 150px;
@@ -51,13 +19,4 @@ li {
 
 .data img {
   height: 200px;
-}
-
-#Card button {
-  border: none;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  padding: 10px;
-  margin: 10px;
 }

@@ -27,12 +27,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div>
             <h3>{contador}</h3>
-            <div>
-                <button onClick={() => res()}>-</button>
-                <button onClick={() => sum()}>+</button>
+            <div className="d-flex justify-content-evenly">
+                <button type="button" className="btn btn-dark" onClick={() => res()}>-</button>
+                <button type="button" className="btn btn-dark" onClick={() => sum()}>+</button>
             </div>
+            <br/>
             <div>
-                <button onClick={() => add()}>Agregar al carrito</button>
+                <button type="button" className="btn btn-dark" onClick={() => add()}>Agregar al carrito</button>
             </div>
         </div>
     )

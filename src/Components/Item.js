@@ -5,16 +5,15 @@ const onAdd = () => {
     alert("Compraste sillas")
 }
 
-export function Item({item}) {
-    console.log(item)
+export function Item({ item }) {
     return (
-        <div id="Card">
-            <div className="data">
-                <div> Producto: {item.title} </div>
-                <div> Precio: {item.price}</div>
-                <img src={item.pictureUrl} />
+        <div className="card" style={{width: "18rem"}}>
+            <img src={item.pictureUrl} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">{item.title}</h5>
+                    <p className="card-text">{item.price}</p>
+                </div>
             <ItemCount initial={1} stock={10} onAdd={onAdd} />
-            </div>
         </div>
     )
 }

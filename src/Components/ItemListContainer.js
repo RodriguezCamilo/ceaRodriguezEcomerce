@@ -22,7 +22,7 @@ export function ItemListContainer() {
     }, [])
 
     return (<div>
-        <h3>Producto</h3>
+        <h3>Productos</h3>
             <ItemList items={itemList}/>
         </div>)
 }
