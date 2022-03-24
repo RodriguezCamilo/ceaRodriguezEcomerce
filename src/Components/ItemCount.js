@@ -18,7 +18,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     const add = () => {
-        onAdd()
+        if (stock > 0){
+            onAdd()
+        }
+        
     }
 
     return (
