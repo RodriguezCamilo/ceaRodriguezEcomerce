@@ -1,4 +1,4 @@
-------------------------------------------------------Proyecto Ecomerce Gaming Shop--------------------------------------------
+----------------------------------------------Proyecto Ecomerce Gaming Shop--------------------------------------------
 
 Mi proyecto es un ecomerce sonbre articulos gaming por fuera de lo que es el hardware de una computadora, vendiendo productos que no impactan en la performance de esta.
 Ejemplos: Auriculares, sillas, mouses, etc.
