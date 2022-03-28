@@ -1,28 +1,52 @@
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { ItemList } from "./ItemList.js"
+import { ITEMS } from "./Stock.js"
 
-const ITEMS = [{id: "Silla", title: "Silla Corsair T3", price: "$76.000", pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_798057-MLA43822611762_102020-O.webp"},
-{id: "Auris", title: "Auriculares Logitech", price: "$17.000", pictureUrl: "https://http2.mlstatic.com/D_NQ_NP_798552-MLA44771577101_022021-O.webp"}]
-
-const PROMISE = new Promise (resolve => {
-    setTimeout(() =>{
+export const PROMISE = new Promise(resolve => {
+    setTimeout(() => {
         return resolve(ITEMS)
     }, 2000)
 })
 
 
 export function ItemListContainer() {
-    const [itemList, setItemList] = useState([])
 
-    useEffect(()=>{
+    const [itemList, setItemList] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const {categoryId} = useParams()
+
+    useEffect(() => {
+
+        setLoading(true)
+
         function init() {
-            PROMISE.then(items => setItemList(items))
+            PROMISE
+                .then((items => {
+
+                    if (categoryId) {
+                        setItemList( items.filter( (prod) => prod.category === categoryId))
+                    }
+                    else{
+                        setItemList(items)
+                    }
+                } ))
+                .finally(() => {
+                    setLoading(false)
+                })
         }
         init()
-    }, [])
+    }, [categoryId])
 
-    return (<div>
-        <h3>Productos</h3>
-            <ItemList items={itemList}/>
+    return (
+        <div>
+            {
+                loading
+                    ? <h1>Cargando...</h1>
+                    : <div> <h1>Gaming Shop</h1>
+                        <hr />
+                        <ItemList items={itemList} /></div>
+            }
         </div>)
 }

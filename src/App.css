@@ -2,14 +2,12 @@
 
 body {
   font-family: "Roboto", sans-serif;
-}
-
-main {
   text-align: center;
+
 }
 
-a {
-  margin: auto 10vw;
+a, li {
+  margin: auto 0.7rem;
 }
 
 
@@ -19,4 +17,8 @@ a {
 
 .data img {
   height: 200px;
+}
+
+#detail {
+  margin: auto;
 }
