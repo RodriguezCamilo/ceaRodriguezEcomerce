@@ -44,7 +44,8 @@ export function ItemListContainer() {
             {
                 loading
                     ? <h1>Cargando...</h1>
-                    : <div> <h1>Gaming Shop</h1>
+                    : <div> <br/>
+                        <h1>Gaming Shop</h1>
                         <hr />
                         <ItemList items={itemList} /></div>
             }

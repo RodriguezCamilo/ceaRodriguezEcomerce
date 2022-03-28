@@ -15,9 +15,8 @@ export function Item({ item }) {
                     <p className="card-text">{item.price}</p>
                 </div>
                 <hr/>
-            <ItemCount initial={1} stock={item.stock} onAdd={onAdd} />
-            <br/>
             <Link to={`/detail/${item.id}`}><button type="button" className="btn btn-dark">Ver Mas</button></Link>
+            <br/>
         </div>
     )
 }
