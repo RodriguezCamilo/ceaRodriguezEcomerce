@@ -1,10 +1,6 @@
 import React from "react";
-import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 
-const onAdd = () => {
-    alert("Compraste sillas")
-}
 
 export function Item({ item }) {
     return (
@@ -13,7 +9,7 @@ export function Item({ item }) {
                 <img src={item.pictureUrl} className="card-img-top" alt="..." />
             </div>
             <h5 className="card-title">{item.title}</h5>
-            <p className="card-text">{item.price}</p>
+            <p className="card-text">${item.price}</p>
             <hr />
             <Link to={`/detail/${item.id}`}><button type="button" className="btn btn-dark">Ver Mas</button></Link>
             <br />

@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
-import { useNavigate } from "react-router-dom";
-
-const onAdd = () => {
-    alert("Compraste sillas")
-}
+import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/Context";
 
 
+export default function ItemDetail({ id, title, detail, pictureUrl, stock, price }) {
 
+    const { addItem, isInCart } = useContext(CartContext)
 
-export default function ItemDetail(items) {
+    const [contador, setContador] = useState(1)
+
+    const onAdd = () => {
+        const itemToAdd = {
+            id, title, price, pictureUrl, contador
+        }
+        addItem(itemToAdd)
+    }
 
     const navigate = useNavigate()
     const handle = () => {
@@ -20,17 +26,28 @@ export default function ItemDetail(items) {
     return (
         <div>
             <div id="detail" className="card" style={{ width: "18rem" }}>
-                <img src={items.pictureUrl} />
+                <img src={pictureUrl} alt={title} />
                 <div className="card-body">
-                    <h3 className="card-title">{items.title}</h3>
-                    <p className="card-text">{items.detail}</p>
-                    <h5>{items.price}</h5>
-                    <h5>Stock disponible: {items.stock}</h5></div>
+                    <h3 className="card-title">{title}</h3>
+                    <p className="card-text">{detail}</p>
+                    <h5>${price}</h5>
+                    <h5>Stock disponible: {stock}</h5></div>
                 <hr />
-                <ItemCount initial={1} stock={items.stock} onAdd={onAdd} />
+
+                {
+                    !isInCart(id)
+                        ? <ItemCount stock={stock} onAdd={onAdd} contador={contador} setContador={setContador} />
+                        : <Link to="/cart" className="btn btn-success"> Terminar mi compra </Link>
+                }
+
+
+
+                <br />
             </div>
             <hr />
             <button className="btn btn-dark" onClick={handle}>Volver</button>
+
+
         </div>
     )
 }

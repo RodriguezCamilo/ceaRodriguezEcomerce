@@ -1,7 +1,6 @@
-import React, { useState} from "react"
+import React from "react"
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-    const [contador, setContador] = useState(initial)
+const ItemCount = ({ stock = 10, onAdd, contador, setContador }) => {
     
     const sum = () => {
         if (contador === stock) {
@@ -11,7 +10,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     const res = () => {
-        if (contador === initial) {
+        if (contador === 1) {
             return
         }
         setContador(contador - 1)
@@ -26,14 +25,14 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
         <div>
-            <h3>{contador}</h3>
             <div className="d-flex justify-content-evenly">
                 <button type="button" className="btn btn-dark" onClick={() => res()}>-</button>
+                <h4>{contador}</h4>
                 <button type="button" className="btn btn-dark" onClick={() => sum()}>+</button>
             </div>
             <br/>
             <div>
-                <button type="button" className="btn btn-dark" onClick={() => add()}>Agregar al carrito</button>
+                <button type="button" className="btn btn-primary" onClick={() => add()}>Agregar al carrito</button>
             </div>
         </div>
     )
