@@ -34,10 +34,11 @@ export default function ItemDetail({ id, title, detail, pictureUrl, stock, price
                     <h5>Stock disponible: {stock}</h5></div>
                 <hr />
 
-                {
+                { stock >= 1 && (
                     !isInCart(id)
                         ? <ItemCount stock={stock} onAdd={onAdd} contador={contador} setContador={setContador} />
                         : <Link to="/cart" className="btn btn-success"> Terminar mi compra </Link>
+                        )
                 }
 
 
