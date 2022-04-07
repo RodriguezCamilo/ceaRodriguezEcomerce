@@ -1,16 +1,15 @@
 import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
 import { Link, useNavigate } from "react-router-dom";
-import { CartContext } from "../context/Context";
+import { CartContext } from "../context/CartContext";
 
 
 export default function ItemDetail({ id, title, detail, pictureUrl, stock, price }) {
 
     const { addItem, isInCart } = useContext(CartContext)
 
-    const [contador, setContador] = useState(1)
 
-    const onAdd = () => {
+    const onAdd = (contador) => {
         const itemToAdd = {
             id, title, price, pictureUrl, contador
         }
@@ -36,7 +35,7 @@ export default function ItemDetail({ id, title, detail, pictureUrl, stock, price
 
                 {
                     !isInCart(id)
-                        ? <ItemCount stock={stock} onAdd={onAdd} contador={contador} setContador={setContador} />
+                        ? <ItemCount stock={stock} onAdd={onAdd} />
                         : <Link to="/cart" className="btn btn-success"> Terminar mi compra </Link>
                 }
 

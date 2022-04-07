@@ -1,7 +1,11 @@
 import React from "react"
+import { useState } from "react"
 
-const ItemCount = ({ stock = 10, onAdd, contador, setContador }) => {
-    
+
+const ItemCount = ({ stock = 10, onAdd }) => {
+
+    const [contador, setContador] = useState(1)
+
     const sum = () => {
         if (contador === stock) {
             return
@@ -18,7 +22,7 @@ const ItemCount = ({ stock = 10, onAdd, contador, setContador }) => {
 
     const add = () => {
         if (stock > 0){
-            onAdd()
+            onAdd(contador)
         }
         
     }
