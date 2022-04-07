@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Price from "./Price";
 
 
 export function Item({ item }) {
@@ -9,7 +10,7 @@ export function Item({ item }) {
                 <img src={item.pictureUrl} className="card-img-top" alt="..." />
             </div>
             <h5 className="card-title">{item.title}</h5>
-            <p className="card-text">${item.price}</p>
+            <Price amount={item.price}/>
             <hr />
             <Link to={`/detail/${item.id}`}><button type="button" className="btn btn-dark">Ver Mas</button></Link>
             <br />

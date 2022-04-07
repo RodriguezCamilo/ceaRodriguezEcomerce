@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ItemList } from "./ItemList.js"
-import { ITEMS } from "./Stock.js"
+import { collection, doc, getDocs, query, where } from "firebase/firestore"
+import {database} from "../firebase/config"
 
-export const PROMISE = new Promise(resolve => {
-    setTimeout(() => {
-        return resolve(ITEMS)
-    }, 2000)
-})
 
 
 export function ItemListContainer() {
@@ -18,32 +14,27 @@ export function ItemListContainer() {
     const {categoryId} = useParams()
 
     useEffect(() => {
-
         setLoading(true)
 
-        function init() {
-            PROMISE
-                .then((items => {
+        const porductsRef = collection(database, "products")
+        const q = categoryId ? query(porductsRef, where("category", "==", categoryId)) : porductsRef
 
-                    if (categoryId) {
-                        setItemList( items.filter( (prod) => prod.category === categoryId))
-                    }
-                    else{
-                        setItemList(items)
-                    }
-                } ))
-                .finally(() => {
-                    setLoading(false)
-                })
-        }
-        init()
+        getDocs(q)
+        .then(resp=> {
+
+            const items = resp.docs.map((doc)=> ({id: doc.id, ...doc.data()}))
+            setItemList(items)
+
+        
+        })
+        .finally(()=> {setLoading(false)})
     }, [categoryId])
 
     return (
         <div>
             {
                 loading
-                    ? <h1>Cargando...</h1>
+                    ? <div><br/><h1>Cargando...</h1></div>
                     : <div> <br/>
                         <h1>Gaming Shop</h1>
                         <hr />
