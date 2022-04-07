@@ -30,9 +30,9 @@ const ItemCount = ({ stock = 10, onAdd }) => {
     return (
         <div>
             <div className="d-flex justify-content-evenly">
-                <button type="button" className={`btn btn-dark ${contador === 1 && "btn-outline-danger"}`} onClick={() => res()}>-</button>
+                <button type="button" className="btn btn-dark" onClick={() => res()}>-</button>
                 <h4>{contador}</h4>
-                <button type="button" className={`btn btn-dark ${contador === stock && "btn-outline-danger" }`} onClick={() => sum()}>+</button>
+                <button type="button" className="btn btn-dark" onClick={() => sum()}>+</button>
             </div>
             <br/>
             <div>
