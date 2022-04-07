@@ -3,38 +3,36 @@ import { useParams } from "react-router-dom"
 import { ItemList } from "./ItemList.js"
 import { ITEMS } from "./Stock.js"
 
-export const PROMISE = new Promise(resolve => {
+/*export const PROMISE = new Promise(resolve => {
     setTimeout(() => {
         return resolve(ITEMS)
     }, 2000)
 })
+*/
 
+export const URL = "https://apimocha.com/elmasterkam/ecomerce"
 
 export function ItemListContainer() {
-
     const [itemList, setItemList] = useState([])
     const [loading, setLoading] = useState(false)
-
     const {categoryId} = useParams()
+
+
 
     useEffect(() => {
 
         setLoading(true)
 
-        function init() {
-            PROMISE
-                .then((items => {
-
-                    if (categoryId) {
-                        setItemList( items.filter( (prod) => prod.category === categoryId))
+        const init= async () => {
+            const response = await fetch(URL)
+            const responseJson = await response.json()
+                if (categoryId) {
+                        setItemList( responseJson.filter( (prod) => prod.category === categoryId))
                     }
                     else{
-                        setItemList(items)
+                        setItemList(responseJson)
                     }
-                } ))
-                .finally(() => {
                     setLoading(false)
-                })
         }
         init()
     }, [categoryId])
