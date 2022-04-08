@@ -28,6 +28,6 @@ h1, h2, h3 {
   font-weight: medium;
 }
 
-navbar {
-  height: 83px;
+.navbar {
+  height: 88px
 }
