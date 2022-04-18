@@ -10,7 +10,7 @@ export function Item({ item }) {
                 <img src={item.pictureUrl} className="card-img-top" alt="..." />
             </div>
             <h5 className="card-title">{item.title}</h5>
-            <Price amount={item.price}/>
+            <h6><Price amount={item.price}/></h6>
             <hr />
             <Link to={`/detail/${item.id}`}><button type="button" className="btn btn-dark">Ver Mas</button></Link>
             <br />

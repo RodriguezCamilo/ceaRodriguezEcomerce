@@ -29,8 +29,10 @@ export const Cart = () => {
                     }
                     <h3>TOTAL: <Price amount={cartTotal()}/></h3>
                     <hr />
-
-                    <button className="btn btn-danger"  onClick={emptyCart}>Vaciar carrito</button>
+                    <Link to="/checkout" className="btn btn-success center" style={{width: "20%"}}>Comprar</Link>
+                    <br/>
+                    <button className="btn btn-danger center"  onClick={emptyCart} style={{width: "20%"}}>Vaciar carrito</button>
+                    <br/>
                 </div>
 
                 : <div className="container my-5">
