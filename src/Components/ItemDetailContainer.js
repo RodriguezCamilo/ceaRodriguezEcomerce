@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { database } from "../firebase/config";
 import ItemDetail from "./ItemDetail";
 import {doc, getDoc} from "firebase/firestore"
+import Coments from "./ComentListContainer";
 
 
 export default function ItemDetailContainer() {
@@ -31,7 +32,9 @@ export default function ItemDetailContainer() {
                     <div className="spinner-border" role="status">
                     </div>
                 </div>
-                :<ItemDetail {...item} />
+                : <><ItemDetail {...item} />
+                    <Coments/>
+                    </>
             }
         </div>
     )

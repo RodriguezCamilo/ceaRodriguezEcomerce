@@ -48,7 +48,7 @@ export default function ItemDetail({ id, title, detail, pictureUrl, stock, price
             </div>
             <br />
             <button className="btn btn-dark" onClick={handle}>Volver</button>
-
+                
 
         </div>
     )
