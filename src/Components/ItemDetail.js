@@ -24,28 +24,29 @@ export default function ItemDetail({ id, title, detail, pictureUrl, stock, price
 
 
     return (
-        <div>
+        <div className="container">
             <br/>
-            <div  className="card center" style={{ width: "18rem" }}>
-                <img src={pictureUrl} alt={title} />
-                <div className="card-body">
-                    <h3 className="card-title">{title}</h3>
-                    <p className="card-text">{detail}</p>
-                    <h4><Price amount={price}/></h4>
-                    <h5>Stock disponible: {stock}</h5></div>
+            <h2 className="card-title">{title}</h2>
+            <hr/>
+            <div className="card" style={{ "height": "70vh"}}>
+            <div  className="row center" style={{ width: "80%"}}>
+                <img className="col" src={pictureUrl} style={{ "maxWidth": "18rem" }} alt={title} />
+                <div className="col align-self-center" style={{width:"50%"}}>
+                    <p className="fs-5 fw-normal ">{detail}</p>
+                    <h4 style={{marginTop:"10%"}}><Price amount={price}/></h4>
+                    <h5>Stock disponible: {stock}</h5>
+                    </div>
+                    </div>
                 <hr />
 
                 {
                     !isInCart(id)
                         ? <ItemCount stock={stock} onAdd={onAdd} />
-                        : <Link to="/cart" className="btn btn-success"> Terminar mi compra </Link>
+                        : <Link to="/cart" className="btn btn-success center" style={{"width": "20%"}}> Terminar mi compra </Link>
                 }
-
-
-
                 <br />
             </div>
-            <hr />
+            <br />
             <button className="btn btn-dark" onClick={handle}>Volver</button>
 
 

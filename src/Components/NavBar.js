@@ -18,7 +18,6 @@ export function NavBar() {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
                             <Link className="nav-link" to="/">Inicio</Link>
-                            <Link className="nav-link" to="/asd">Tienda</Link>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorias

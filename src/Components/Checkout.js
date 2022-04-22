@@ -42,11 +42,12 @@ function Checkout() {
         }
 
         const orderRef = collection(database, "orders")
-        console.log(orden)
+        
         addDoc(orderRef, orden)
-            .then((doc) => { console.log(doc.id)
-            setOrderId(doc.id)
-            emptyCart()
+            .then((doc) => {
+                console.log(doc.id)
+                setOrderId(doc.id)
+                emptyCart()
             })
 
     }
@@ -54,15 +55,15 @@ function Checkout() {
     if (orderId) {
         return <div className='container my-5 center'>
             <h1>Tu orden se ha procesado exitosamente!</h1>
-            <hr/>
+            <hr />
             <h3>Guarda tu código de orden: {orderId}</h3>
-            <hr/>
+            <hr />
             <Link to="/" className='btn btn-success'>Volver a la tienda</Link>
         </div>
     }
 
-    if (cart.length === 0){
-        return <Navigate to="/"/>
+    if (cart.length === 0) {
+        return <Navigate to="/" />
     }
 
     return (
@@ -70,11 +71,25 @@ function Checkout() {
             <br />
             <h1>Checkout</h1>
             <hr />
-            <form onSubmit={handleSubmit}>
-                <input className='form-control my-2' type={"text"} placeholder="Nombre" value={values.nombre} name="nombre" onChange={handleInputChange}></input>
-                <input className='form-control my-2' type={"email"} placeholder="Email" value={values.email} name="email" onChange={handleInputChange}></input>
-                <input className='form-control my-2' type={"tel"} placeholder="Telefono" value={values.tel} name="tel" onChange={handleInputChange}></input>
-                <button className='btn btn-success' type='submit'>Enviar</button>
+            <form className='container  justify-content-start' style={{ width: "60%", marginTop: "30px" }} onSubmit={handleSubmit}>
+                <div className='card'>
+                    <div style={{marginBottom: "20px", marginTop: "20px"}}>
+                        <label className='fs-4'>Nombre:</label>
+                        <input className='form-control my-2 center' type={"text"} style={{ width: "70%" }} placeholder="Joseph Joestar" value={values.nombre} name="nombre" onChange={handleInputChange} required></input>
+                    </div>
+
+                    <div style={{marginBottom: "20px"}}>
+                        <label className='fs-4'>Email:</label>
+                        <input className='form-control my-2 center' type={"email"} style={{ width: "70%" }} placeholder="josephrulz@joestar.com" value={values.email} name="email" onChange={handleInputChange} required></input>
+                    </div>
+
+                    <div style={{marginBottom: "20px"}}>
+                        <label className='fs-4'>Telefono:</label>
+                        <input className='form-control my-2 center' type={"tel"} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" style={{ width: "70%" }} placeholder="011 - Joestar" value={values.tel} name="tel" onChange={handleInputChange} required></input>
+                    </div>
+
+                    <button className='btn btn-success center' style={{marginBottom: "20px", width:"20%"}} type='submit'>Enviar</button>
+                </div>
             </form>
         </div>
     )
