@@ -8,7 +8,7 @@ export function CartWidget() {
     const {cartQuantity} = useContext(CartContext)
     return ( cartQuantity() > 0 && 
         <div type="button" className="btn btn-success">
-        <img src={cart}  className="navbar-brand" height="40"/>
+        <img src={cart}  className="navbar-brand" alt="cart" height="40"/>
         <span>{cartQuantity()}</span>
         </div>)
 }
