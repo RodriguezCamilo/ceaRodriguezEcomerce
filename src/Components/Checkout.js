@@ -85,7 +85,7 @@ function Checkout() {
 
                     <div style={{marginBottom: "20px"}}>
                         <label className='fs-4'>Telefono:</label>
-                        <input className='form-control my-2 center' type={"tel"} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" style={{ width: "70%" }} placeholder="011 - Joestar" value={values.tel} name="tel" onChange={handleInputChange} required></input>
+                        <input className='form-control my-2 center' type={"tel"}  style={{ width: "70%" }} placeholder="011 - Joestar" value={values.tel} name="tel" onChange={handleInputChange} required></input>
                     </div>
 
                     <button className='btn btn-success center' style={{marginBottom: "20px", width:"20%"}} type='submit'>Enviar</button>
